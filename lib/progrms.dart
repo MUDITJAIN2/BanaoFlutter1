@@ -22,6 +22,7 @@ class _progrmsState extends State<progrms> {
     if (response.statusCode == 200) {
       setState(() {
         mapResponse = json.decode(response.body);
+        print(mapResponse);
         listResponse = mapResponse!['items'];
       });
     }
@@ -45,9 +46,8 @@ class _progrmsState extends State<progrms> {
                   const Padding(padding: EdgeInsets.all(8.0)),
                   Text(listResponse![index]['createdAt'].toString()),
                   Text(listResponse![index]['name'].toString()),
-                  Text(listResponse![index]['duration'].toString()),
                   Text(listResponse![index]['category'].toString()),
-                  Text(listResponse![index]['locked'].toString()),
+                  Text(listResponse![index]['lesson'].toString()),
                   Text(listResponse![index]['id'].toString()),
                 ],
               ),

@@ -37,22 +37,24 @@ class _lesonState extends State<leson> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("API 1 call")),
-      body: SingleChildScrollView(
-        child:
-      Center(
-        child: Container(
-          height: 950,
-          width: 400,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Colors.blue.shade200,
-          ),
-          child: Center(
-            child: listResponse == null ? const Text("please wait while data is loading....")  : Text(listResponse![0].toString()),
-          ),
-        ),
-      ),
-      ),
+     body: ListView.builder(
+          itemBuilder: (context, index) {
+            return Container(
+              child: Column(
+                children: [
+                  const Padding(padding: EdgeInsets.all(8.0)),
+                  Text(listResponse![index]['createdAt'].toString()),
+                  Text(listResponse![index]['name'].toString()),
+                  Text(listResponse![index]['duration'].toString()),
+                  Text(listResponse![index]['category'].toString()),
+                  Text(listResponse![index]['locked'].toString()),
+                  Text(listResponse![index]['id'].toString()),
+                ],
+              ),
+            );
+          },
+          itemCount: listResponse == null ? 0 : listResponse!.length,
+        )
     );
   }
 }

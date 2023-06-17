@@ -17,12 +17,12 @@ class progrms extends StatefulWidget {
 class _progrmsState extends State<progrms> {
   Future fetchdata() async {
     http.Response response;
-    response = await http.get(Uri.parse("https://632017e19f82827dcf24a655.mockapi.io/api/programs"));
+    response = await http.get(
+        Uri.parse("https://632017e19f82827dcf24a655.mockapi.io/api/programs"));
     if (response.statusCode == 200) {
       setState(() {
         mapResponse = json.decode(response.body);
         listResponse = mapResponse!['items'];
-         
       });
     }
   }
@@ -36,23 +36,24 @@ class _progrmsState extends State<progrms> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("API 2 call")),
-      body: SingleChildScrollView(
-        child:
-      Center(
-        child: Container(
-          height: 900,
-          width: 425,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Colors.blue.shade200,
-          ),
-          child: Center(
-            child: listResponse == null ? const Text("please wait while data is loading....") : Text(listResponse.toString()),
-          ),
-        ),
-      ),
-      ),
-    );
+        appBar: AppBar(title: const Text("API 2 call")),
+        body: ListView.builder(
+          itemBuilder: (context, index) {
+            return Container(
+              child: Column(
+                children: [
+                  const Padding(padding: EdgeInsets.all(8.0)),
+                  Text(listResponse![index]['createdAt'].toString()),
+                  Text(listResponse![index]['name'].toString()),
+                  Text(listResponse![index]['duration'].toString()),
+                  Text(listResponse![index]['category'].toString()),
+                  Text(listResponse![index]['locked'].toString()),
+                  Text(listResponse![index]['id'].toString()),
+                ],
+              ),
+            );
+          },
+          itemCount: listResponse == null ? 0 : listResponse!.length,
+        ));
   }
 }

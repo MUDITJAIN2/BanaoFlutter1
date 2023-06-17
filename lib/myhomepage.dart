@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
+             Padding(
               padding: EdgeInsets.only(left: 20),
               child: Text(
                 'Hello Priya',
@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            const Padding(
+             Padding(
               padding: EdgeInsets.only(left: 20),
               child: Text(
                 'What do you want to learn today?',
@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               child: Padding(
-                padding: const EdgeInsets.only(left: 15, top: 20),
+                padding:  EdgeInsets.only(left: 15, top: 20),
                 child: Column(
                   children: [
                     Row(
@@ -88,10 +88,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const progrms()),
+                                      builder: (context) =>  progrms()),
                                 );
                               },
-                              child: const Row(
+                              child:  Row(
                                 children: [
                                   Icon(Icons.book_outlined),
                                   Text(
@@ -110,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               onPressed: () {
                                 // Handle get help button press
                               },
-                              child: const Row(
+                              child:  Row(
                                 children: [
                                   Icon(Icons.help),
                                   Text(
@@ -135,10 +135,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const leson()),
+                                      builder: (context) =>  leson()),
                                 );
                               },
-                              child: const Row(
+                              child:  Row(
                                 children: [
                                   Icon(Icons.menu_book_rounded),
                                   Text(
